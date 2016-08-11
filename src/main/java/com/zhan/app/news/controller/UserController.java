@@ -38,7 +38,10 @@ public class UserController {
 		}
 
 		String zh_cn = request.getParameter("zh-cn");
-		user.setZh_cn(zh_cn);
+		if(!TextUtils.isEmpty(zh_cn)){
+			user.setZh_cn(zh_cn);
+		}
+		
 		String id = userService.insert(user);
 		ModelMap result = ResultUtil.getResultOKMap();
 		result.put("user_id", id);

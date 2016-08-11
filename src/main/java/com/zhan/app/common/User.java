@@ -14,7 +14,7 @@ public class User {
 	@JSONField(serialize = false)
 	private int state;
 	@JSONField(serialize = false)
-	private int test;
+	private String test;
 	
 	
 	private String zh_cn;
@@ -58,6 +58,14 @@ public class User {
 
 	public void setZh_cn(String zh_cn) {
 		this.zh_cn = zh_cn;
+	}
+
+	public String getTest() {
+		return test;
+	}
+
+	public void setTest(String test) {
+		this.test = test;
 	}
 
 	
