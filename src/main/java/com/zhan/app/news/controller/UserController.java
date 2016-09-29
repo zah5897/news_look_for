@@ -37,9 +37,11 @@ public class UserController {
 			userService.deleteByToken(user.getToken());
 		}
 
-		String zh_cn = request.getParameter("zh-cn");
-		if(!TextUtils.isEmpty(zh_cn)){
-			user.setZh_cn(zh_cn);
+		if(TextUtils.isEmpty(user.getZh_cn())){
+			String zh_cn = request.getParameter("zh-cn");
+			if(!TextUtils.isEmpty(zh_cn)){
+				user.setZh_cn(zh_cn);
+			}
 		}
 		
 		String id = userService.insert(user);
