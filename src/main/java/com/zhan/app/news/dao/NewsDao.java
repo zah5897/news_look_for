@@ -37,8 +37,11 @@ public class NewsDao extends BaseDao {
 		return mongoTemplate.count(query, News.class);
 	}
 
-	public List<?> list(String publish_time, int limit) {
+	public List<?> list(String publish_time, int limit, int url_type) {
 		Query query = new Query();
+		if (url_type > -1) {
+			query.addCriteria(Criteria.where("url_type").is(url_type));
+		}
 		query.with(new Sort(new Order(Direction.DESC, "publish_time")));
 		query.limit(limit);
 		if (!TextUtils.isEmpty(publish_time)) {

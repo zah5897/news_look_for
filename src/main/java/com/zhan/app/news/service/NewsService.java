@@ -29,8 +29,8 @@ public class NewsService {
 		return count > 0;
 	}
 
-	public List<?> list(String publish_time, int limit) {
-		return newsDao.list(publish_time, limit);
+	public List<?> list(String publish_time, int limit,int url_type) {
+		return newsDao.list(publish_time, limit,url_type);
 	}
 	
 	public NewsDetial find(String id){
